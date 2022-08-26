@@ -1,0 +1,82 @@
+-- Active: 1661520273551@@127.0.0.1@3306@atividade_bd
+Active: 1661520273551@@127.0.0.1@3306@atividade_bd
+
+CREATE TABLE tipo_usuario (
+cod_tipuser int AUTO_INCREMENT PRIMARY KEY,
+desc_tipuser varchar(250) NOT NULL
+-- );
+INSERT INTO tipo_usuario(desc_tipuser) VALUES ("Voluntarios"), ("Doador")
+
+CREATE TABLE midia (
+titulo_midia varchar(100) NOT NULL,
+caminho_midia varchar(250) NOT NULL,
+cod_midia int AUTO_INCREMENT PRIMARY KEY,
+cod_postagem int
+);
+
+CREATE TABLE ong (
+email_ong varchar(250) NOT NULL UNIQUE,
+telefone_ong varchar(14) NOT NULL,
+nome_ong varchar(100) NOT NULL,
+cod_ong int AUTO_INCREMENT PRIMARY KEY
+);
+
+CREATE TABLE usuario (
+idade int NOT NULL,
+nome varchar(250) NOT NULL,
+email varchar(250) NOT NULL UNIQUE,
+cod_usuario int AUTO_INCREMENT PRIMARY KEY,
+telefone varchar(14) NOT NULL,
+cod_tipuser int,
+FOREIGN KEY(cod_tipuser) REFERENCES tipo_usuario (cod_tipuser)
+);
+
+INSERT INTO usuario(idade, nome, email, telefone, cod_tipuser) VALUES (18,"Heloisa Bett","heloisabett@gmail.com",47998745632,1), (20,"Julia Ramos", "ramosjulia2003@gmail.com", 479988471141,2),(32,"Roberto Claudio", "robertocludio20@gmail.com",47998876540,1),(20,"Davy Moreira", "flp.dvy@gmail.com", 47984744190,1), (24,"Rafaella Albano", "rafaelaalbano70@gmail.com",479995186088,2), (35,"Lara Rodrigues","lariro@gmail.com", 48987452398, 2), (34, "Pedro Camargo", "pedrinho123@gmail.com", 47996785430, 1), (21,"Luiza Santos", "santalu@gmail.com", 48988449191, 2), (41,"Cleiton Martin", "bertinho123@gmail.com", 48988554441, 2), (17, "Lucas Almeida", "lucasalmeida@gmail.com", 48999345567, 1);
+
+
+CREATE TABLE postagem (
+titulo_postagem varchar(100) NOT NULL,
+categoria varchar(100) NOT NULL,
+cod_postagem int AUTO_INCREMENT PRIMARY KEY,
+texto_postagem varchar(1000) NOT NULL,
+cod_usuario int,
+cod_ong int,
+FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario),
+FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong)
+);
+
+CREATE TABLE curtir (
+cod_postagem int,
+cod_usuario int,
+dathora_curtir timestamp NOT NULL,
+FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem),
+FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
+);
+
+CREATE TABLE comenta (
+cod_postagem int,
+cod_usuario int,
+dathora_coment timestamp NOT NULL,
+texto_coment varchar(250) NOT NULL,
+FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem),
+FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
+);
+
+CREATE TABLE doacao (
+cod_ong int,
+cod_usuario int,
+dt_doacao date NOT NULL,
+valor_doacao decimal(10,2) NOT NULL,
+FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
+FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
+);
+
+CREATE TABLE voluntario (
+cod_ong int,
+cod_usuario int,
+dt_voluntario date NOT NULL,
+FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
+FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
+);
+
+ALTER TABLE midia ADD FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem);
