@@ -21,6 +21,7 @@ telefone_ong varchar(14) NOT NULL,
 nome_ong varchar(100) NOT NULL,
 cod_ong int AUTO_INCREMENT PRIMARY KEY
 );
+INSERT INTO ong (email_ong,telefone_ong,nome_ong) VALUES ("aacd2020@gmail.com",11926347890,"AACD"),("vivario@gmail.com",47987604562,"Viva Rio"),("transparenciabrasil@gmail.com",49913245768,"Transparencia Brasil),("abrinqfundacao123@gmail.com",42989076584,"Abrinq Fundação"),("ipamongsbrasil@gmail.com",47992844947,"IPAM"),("saudecrinaca2022@gmail.com",49999664488,"Saúde Criaça"),("intitutodacriança",4799947312,"Instituto da Criança"),("brasilvetor50@gmail.com",49984691808,"Vetor Brasil"),("centrodeinclusaodigital@gmail.com",11984657994,"Centro de Inclusão Digital"),("fundacaosos@gmail.com",47988076512,"Fundação SOS Mata Atlantica");
 
 CREATE TABLE usuario (
 idade int NOT NULL,
@@ -45,6 +46,7 @@ cod_ong int,
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario),
 FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong)
 );
+ISERT INTO postagem(titulo_postagem,categoria,texto_postagem) VALUES ("Ongs alertam","alerta","ONGS alertam que milhões de crianças no mundo podem morrer de fome"),("ONGs palestinas","Noticia","ONGs palestinas acusam Israel de tentativa de “silenciar defensores dos direitos humanos”"),("Jovens bolsistas chegam a universidades de ponta com apoio de ONGs","Notica","Instituto Ponte e Associação Cactus realizaram evento em São Paulo para celebrar o êxito de alunos oriundos de escola pública"),("EUA e UE mostram preocupação com fechamento de escritórios de ONGs palestinas por Israel","Alerta","Estados Unidos e União Europeia mostraram preocupação depois que forças israelenses invadiram e fecharam os escritórios de sete ONGs em Ramallah, sede da Autoridade Palestina na Cisjordânia, nesta quinta-feira pela manhã."),("Projeto proíbe","notica","Projeto proíbe parcerias entre administração pública e ONGs que promovam aborto"),
 
 CREATE TABLE curtir (
 cod_postagem int,
