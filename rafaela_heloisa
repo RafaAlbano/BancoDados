@@ -13,6 +13,7 @@ caminho_midia varchar(250) NOT NULL,
 cod_midia int AUTO_INCREMENT PRIMARY KEY,
 cod_postagem int
 );
+INSERT INTO midia (titulo_midia,caminho_midia,cod_postagem) VALUES ("Ongs Brasileiras","media_new_path",1),("Ongs agindo na africa","media_new_path",2),("Entenda a importancia das ongs","media_new_path",3),("Melhores ongs","media_new_path",4),("Parceria entre as ongs","media_new_path",5),("Ongs vunerable","media_new_path",6),("A importancia das Ongs na pandemia","media_new_path",7),("Premio melhores ongs","media_new_path",8),("Melhores Ongs do Brasil","media_new_path",9),("Ongs americanas","media_new_path",10);
 
 CREATE TABLE ong (
 email_ong varchar(250) NOT NULL UNIQUE,
