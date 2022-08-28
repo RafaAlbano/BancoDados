@@ -55,7 +55,7 @@ dathora_curtir timestamp NOT NULL,
 FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 );
-
+INSERT INTO curtir(dathora_curtir) VALUES (“1970–01–01 13:40:10”),(“1999–06–05 15:20:22”), (“2005–08–01 23:10:44”), (“1980–06–07 12:12:30”), (“1997–01–05 14:25:11”),( “1990–05–08 11:40:20”), (“2020–09–01 16:15:45”), (“1980–08–06 18:35:30”), (“1977–07–07 04:20:15”), (“1983–03–08 12:12:39”);
 
 CREATE TABLE comenta (
 cod_postagem int,
@@ -65,7 +65,7 @@ texto_coment varchar(250) NOT NULL,
 FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 );
-
+INSERT INTO comenta(dathora_coment, texto_coment), (“12:20”, “comprado  racao”),(“15:38, gato castrado”), (“12:30”, limpar areia dos gatos”), (“20:00”,vacina no dodo”), (“13:00”, “abrir os emails"), (“15:00”, “castrar mimi”),(“18;30”,”banho na lili”),(“19:30”, “banho na luna”),(“20:40”,”agradecer as doacoes na internet”),(“8:00” ,“receber cliente”);
 
 CREATE TABLE doacao (
 cod_ong int,
@@ -75,6 +75,7 @@ valor_doacao decimal(10,2) NOT NULL,
 FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 );
+INSERT INTO doacao(dt_doacao, valor_doacao),(“roupina”,”40,50”),(“remedio”,”160,99”),(“cobertor”,”40,10”),(“materiais de higeine”,”50,40”),(“brinquedos”,”30,00”),(“produto de limpeza”,”80,50”),(“saco de areia”,70,40”),(“medicamentos”,90,60”),(“racao para gato”,100,99”),(“racao para cachorro”,”100,99”);
 
 CREATE TABLE voluntario (
 cod_ong int,
@@ -83,5 +84,6 @@ dt_voluntario date NOT NULL,
 FOREIGN KEY(cod_ong) REFERENCES ong (cod_ong),
 FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 );
+INSERT INTO voluntario(dt_voluntario), (“2006-09-09”),(“1898-08-07”),(“1022-03-03”),(‘1666-10-11”),(“1017-02-08”),(“2021-06-05”),(“2014-04-09”),(“2010-12-04”),(“2022-08-10”),(“2012-03-11”);
 
 ALTER TABLE midia ADD FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem);
