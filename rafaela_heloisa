@@ -85,3 +85,27 @@ FOREIGN KEY(cod_usuario) REFERENCES usuario (cod_usuario)
 INSERT INTO voluntario(dt_voluntario), (“2006-09-09”),(“1898-08-07”),(“1022-03-03”),(‘1666-10-11”),(“1017-02-08”),(“2021-06-05”),(“2014-04-09”),(“2010-12-04”),(“2022-08-10”),(“2012-03-11”);
 
 ALTER TABLE midia ADD FOREIGN KEY(cod_postagem) REFERENCES postagem (cod_postagem);
+
+
+
+
+
+dia 21/09/22 
+
+
+select * from pedidos;
+
+select nome, cod_pedido
+from cad_usuario, pedidos
+where cad_usuario.cpf = pedidos.cad_usuario_cpf;
+
+select nome, cod_pedido, dtped, qtditem, descricao, preco_unit
+from cad_usuario, pedidos, itemped, produto
+where cad_usuario.cpf = pedidos.cad_usuario_cpf and 
+pedidos.cod_pedido = itemped.ped_codpedidos and 
+itemped.prod_cod_produto = produto.cod_produto;
+
+select nome, cpf, descricao_tipo, ds_logradouro_nome
+from cad_usuario, tipo_usuario, logradouro
+where cad_usuario.tipuser_cd = tipo_usuario.cod_tip_user and 
+cad_usuario.log_cd_logradouro = logradouro.cd_logradouro;
