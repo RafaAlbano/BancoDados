@@ -124,3 +124,5 @@ where produto.preco_unit >=12;
 /*exercicio 3*/
 
 select descricao, preco_unit,preco_unit  + 1.005 resultado from produto
+
+https://developers.themoviedb.org/3/discover/movie-discover
